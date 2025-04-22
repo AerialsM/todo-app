@@ -12,6 +12,3 @@
 
 ```bash
 python todo/main.py
-
-
-Про SQLite вместо .json
