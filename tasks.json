@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "description": "Написать программу",
+    "done": true
+  },
+  {
+    "id": 2,
+    "description": "Протестировать программу",
+    "done": false
+  },
+  {
+    "id": 3,
+    "description": "Добавить веб-интерфейс проекта",
+    "done": false
+  },
+  {
+    "id": 4,
+    "description": "Погулять",
+    "done": false
+  }
+]

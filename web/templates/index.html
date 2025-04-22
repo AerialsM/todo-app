@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo App</title>
+    <style>
+        body { font-family: sans-serif; padding: 2rem; }
+        .task { margin-bottom: 1rem; }
+        .done { text-decoration: line-through; color: gray; }
+    </style>
+</head>
+<body>
+    <h1>Мои задачи</h1>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        <ul style="color: red;">
+            {% for category, message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    {% endwith %}
+
+    <form action="{{ url_for('add') }}" method="post">
+        <input type="text" name="description" placeholder="Новая задача" required>
+        <button type="submit">Добавить</button>
+    </form>
+
+    <ul>
+        {% for task in tasks %}
+            <li class="task {% if task.done %}done{% endif %}">
+                {{ task.id }}. {{ task.description }}
+                <a href="{{ url_for('toggle', task_id=task.id) }}">
+                    {% if task.done %}❌{% else %}✅{% endif %}
+                </a>
+                <a href="{{ url_for('edit', task_id=task.id) }}">[Редактировать]</a>
+                <a href="{{ url_for('delete', task_id=task.id) }}" onclick="return confirm('Удалить задачу?')">[Удалить]</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

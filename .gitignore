@@ -1,0 +1,9 @@
+.idea/
+__pycache__/
+venv/
+temp_folder/
+*.pyc
+*.log
+.env
+.DS_Store
+help.txt
